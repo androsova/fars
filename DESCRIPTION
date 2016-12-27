@@ -1,11 +1,10 @@
 Package: fars
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Fars Data Manipulation
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Ganna Androsova
+Maintainer: The package maintainer <ganna.androsova@uni.lu>
+Description: Trail package creation for Coursera course
+License: GPL v3
 Encoding: UTF-8
 LazyData: true
