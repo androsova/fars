@@ -1,0 +1,63 @@
+---
+title: "Instructions for FARS Package"
+author: "Ganna Androsova"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r Libraries, echo = FALSE, include = FALSE}
+library(fars)
+```
+
+## Introduction
+
+This vignette descripbes the functions and use cases of the FARS package. The package contains a number of functions for analysis of the yearly records from US National Highway Traffic Safety Administration's Fatality Analysis Reporting System. FARS data is the public data regarding fatal injuries suffered in motor vehicle traffic crashes.
+
+## Functions
+
+Here is a list functions included in the package:
+
+- fars_read()
+- make_filename()
+- fars_read_years()
+- fars_summarize_years()
+- fars_map_state()
+
+### fars_read()
+
+This function reads CSV file defined by "filename" and returns a tibble (data.frame).
+```{r, }
+accident_2014 <- fars_read("./data/accident_2014.csv.bz2")
+print(head(accident_2014))
+```
+
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
