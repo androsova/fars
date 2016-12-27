@@ -11,6 +11,8 @@ vignette: >
 
 ```{r Libraries, echo = FALSE, include = FALSE}
 library(fars)
+library(dplyr)
+library(maps)
 ```
 
 ## Introduction
@@ -21,43 +23,53 @@ This vignette descripbes the functions and use cases of the FARS package. The pa
 
 Here is a list functions included in the package:
 
-- fars_read()
 - make_filename()
+- fars_read()
 - fars_read_years()
 - fars_summarize_years()
 - fars_map_state()
 
+### make_filename()
+
+This function creates a filename as accident_<YEAR>.csv.bz2, where <YEAR> is substituted by the function input "year".
+
+```{r make_filename}
+filename <- make_filename(2014)
+print(filename)
+```
+
 ### fars_read()
 
-This function reads CSV file defined by "filename" and returns a tibble (data.frame).
-```{r, }
-accident_2014 <- fars_read("./data/accident_2014.csv.bz2")
+This function reads CSV file defined by "filepath" for earlier created filename `r filename` and returns a tibble (data.frame).
+
+```{r fars_read}
+filepath <- system.file("data", filename, package = "fars")
+accident_2014 <- fars_read(filepath)
 print(head(accident_2014))
 ```
 
+### fars_read_years()
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+This function accepts a vector or list of years "years", where the records from US  National Highway Traffic Safety Administration's Fatality Analysis Reporting System should be available. It returns a list of the data.frames with two columns (MONTH, year).
+
+```{r fars_read_years}
+accidents <- fars_read_years(2013)
+print(accidents)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+### fars_summarize_years()
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+This function accepts a vector or list of years "years", where the records from US National Highway Traffic Safety Administration's Fatality Analysis Reporting System should be available. It calculates a number of accidents per month and year and returns a tibble (data.frame) with months in rows and years in columns.
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r fars_summarize_years}
+summary <- fars_summarize_years(2013:2015)
+print(summary)
 ```
 
-Also a quote using `>`:
+### fars_map_state()
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+This function creates a plot with all incidents in specific US state (defined by "state.num") per indicaed "year". The "year" should correspond to the recorded analysis from US National Highway Traffic Safety Administration's Fatality Analysis Reporting System.
+
+```{r fars_map_state}
+fars_map_state(1, 2013)
+```
