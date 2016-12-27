@@ -1,10 +1,10 @@
 Package: fars
 Type: Package
-Title: Fars Data Manipulation
+Title: Package for FARS Data Manipulation
 Version: 0.1.0
 Author: Ganna Androsova
-Maintainer: The package maintainer <ganna.androsova@uni.lu>
-Description: Trail package creation for Coursera course
-License: GPL v3
+Maintainer: Ganna Androsova <ganna.androsova@uni.lu>
+Description: FARS data analysis in Coursera course
+License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
