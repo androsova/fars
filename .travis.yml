@@ -4,4 +4,5 @@ language: R
 sudo: false
 cache: packages
 before_install:
-  - Rscript -e 'install.packages("dplyr")'
+  - Rscript -e 'install.packages("dplyr", lib="/home/travis/R-bin/lib/R/library/")'
+  - Rscript -e 'install.packages("maps", lib="/home/travis/R-bin/lib/R/library/")'
