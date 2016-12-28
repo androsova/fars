@@ -2,6 +2,7 @@
 
 language: R
 sudo: false
+warnings_are_errors: false
 cache: packages
 before_install:
   - Rscript -e 'install.packages("dplyr", lib="/home/travis/R-bin/lib/R/library/")'
