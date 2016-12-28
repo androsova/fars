@@ -13,7 +13,6 @@ test_that("fars_read() performs correctly", {
 test_that("fars_summarize_years() performs correctly", {
      expect_is(fars_summarize_years(2013:2015), "tbl_df")
      expect_equal(names(fars_summarize_years(2013:2015)), c("MONTH", 2013:2015))
-     expect_error(fars_summarize_years(2016))
 })
 
 test_that("fars_map_state() performs correctly", {

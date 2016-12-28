@@ -15,6 +15,7 @@ VignetteBuilder: knitr
 RoxygenNote: 5.0.1
 Imports: 
     dplyr,
-    maps,
     readr,
-    tidyr
+    tidyr,
+    magrittr
+Depends: maps

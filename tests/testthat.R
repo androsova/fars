@@ -1,5 +1,3 @@
-library(testthat)
 library(fars)
-library(dplyr)
-
+library(testthat)
 test_check("fars")

@@ -13,8 +13,8 @@
 #' @importFrom dplyr tbl_df
 #'
 #' @examples
-#' fars_read("./data/accident_2013.csv.bz2")
-#' accident_2014 <- fars_read("./data/accident_2014.csv.bz2")
+#' fars_read(system.file("data", "accident_2013.csv.bz2", package = "fars"))
+#' accident_2014 <- fars_read(system.file("data", "accident_2014.csv.bz2", package = "fars"))
 #'
 #' @export
 fars_read <- function(filename) {
@@ -100,6 +100,7 @@ fars_read_years <- function(years) {
 #'
 #' @importFrom dplyr bind_rows group_by summarize
 #' @importFrom tidyr spread
+#' @import magrittr
 #'
 #' @examples
 #' fars_summarize_years(2013)
