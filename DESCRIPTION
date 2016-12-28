@@ -19,3 +19,6 @@ Imports:
     tidyr,
     magrittr
 Depends: maps
+Suggests: knitr,
+    rmarkdown,
+    testthat
